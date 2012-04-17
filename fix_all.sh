@@ -9,13 +9,8 @@ repair()
     fi
 }
 
-if [ $# -lt 1 ]; then
-    echo "Usage: `basename $0` mongodb_data_dir1 [monogodb_data_dir2]  ... "
-    echo "repair unporperly shutdown mongo database"
-    exit 1
-fi
-
-for i in $@
+cd /var/vcap/store/mongodb
+for i in `ls .`
 do
 repair $i
 done
